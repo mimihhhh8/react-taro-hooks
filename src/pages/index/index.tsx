@@ -3,11 +3,14 @@ import Taro from '@tarojs/taro'
 import { View} from '@tarojs/components'
 import { useAsyncEffect } from '@/src/utils/custom_hooks'
 import { AtInput,AtButton }  from 'taro-ui'
-
+import {login} from '../../actions/login'
+import {useDispatch,useSelector} from 'react-redux'
 import './index.scss'
 
 function Index () {
-
+  const pageState=useSelector((state:any)=>state)
+  const dispatch = useDispatch()
+  console.log(pageState,'satte')
   useAsyncEffect(async () => {
     console.log('useeffect方发fffff')
   },[])
@@ -17,6 +20,14 @@ function Index () {
   }
   const codeChange = ()=>{
 
+  }
+
+  function haandleLogin(){
+    let data ={
+      phone:'17811111111',
+      safe_code:'1111'
+    }
+    dispatch(login(data))
   }
 
   return (
@@ -45,7 +56,7 @@ function Index () {
           >
             发送验证码
       </AtInput>
-          <AtButton type='primary' size='normal' 	className='loginButton'>立即登录</AtButton>
+          <AtButton type='primary' size='normal' 	className='loginButton' onClick={haandleLogin}>立即登录</AtButton>
         </View>
       </View>
     
