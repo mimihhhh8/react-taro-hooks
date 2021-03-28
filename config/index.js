@@ -49,6 +49,16 @@ const config = {
     }
   },
   h5: {
+    //  devServer: {
+    //     host: 'localhost',
+    //     port: 10086,
+    //     proxy: {
+    //         '/api/v1': {  // rest服务的path
+    //             target: 'http://<backend>:<port>',  // 服务端地址
+    //             changeOrigin: true
+    //         }
+    //     }
+    // },
     publicPath: '/',
     staticDirectory: 'static',
     postcss: {
