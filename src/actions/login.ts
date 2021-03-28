@@ -16,5 +16,5 @@ export const login = (data:loginParams)=>{
                 }
             })
         })
-    }
+    } 
 }

@@ -4,13 +4,19 @@ import { View} from '@tarojs/components'
 import { useAsyncEffect } from '@/src/utils/custom_hooks'
 import { AtInput,AtButton }  from 'taro-ui'
 import {login} from '../../actions/login'
+// 取存在reducer中的值
 import {useDispatch,useSelector} from 'react-redux'
 import './index.scss'
 
 function Index () {
+  // pageState 拿到当前页面reducer中的值
   const pageState=useSelector((state:any)=>state)
+  // dispatch 派发一个action（派发用户的行为，=》掉服务）
   const dispatch = useDispatch()
+
+  
   console.log(pageState,'satte')
+
   useAsyncEffect(async () => {
     console.log('useeffect方发fffff')
   },[])
