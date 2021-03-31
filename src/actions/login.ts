@@ -7,7 +7,7 @@ interface loginParams {
 }
 export const login = (data:loginParams)=>{
     return dispatch =>{
-        API.post('/passport/sign-in',data, 'application/json').then(res=>{
+        API.post('/api/passport/sign-in',data, 'application/json').then(res=>{
             console.log(res)
             dispatch({
                 type:SAVETOKEN,
