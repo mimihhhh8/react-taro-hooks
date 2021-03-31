@@ -26,7 +26,7 @@ interface ICode {
   GATEWAY_TIMEOUT: number
 }
 
-const HTTP_STATUS: ICode = {
+export const HTTP_STATUS: ICode = {
   SUCCESS: 200,
   CREATED: 201,
   ACCEPTED: 202,
@@ -39,5 +39,22 @@ const HTTP_STATUS: ICode = {
   SERVICE_UNAVAILABLE: 503,
   GATEWAY_TIMEOUT: 504
 }
-
-export default HTTP_STATUS
+export const ErrorCode = {
+  succ: 'SUCCESS',
+  net: '',
+  msg: (data) => {
+    return (data.meta && data.meta.msg) || data.errmsg
+  },
+  is_succ: (data) => {
+    return (data.meta && data.meta.code === 'SUCCESS');
+  },
+  need_auth: (data) => {
+    return (data.meta && data.meta.code === 'NoWechatOauth');
+  },
+  need_login: (data) => {
+    return (data.meta && data.meta.code === 'Unauthorized');
+  },
+  not_bd: (data) => {
+    return (data.meta && data.meta.code === 'WARN' && data.meta.extra && data.meta.extra.type === 'invalid_account');
+  }
+}

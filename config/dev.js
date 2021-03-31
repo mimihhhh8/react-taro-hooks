@@ -10,9 +10,11 @@ module.exports = {
       port: 10086,
       proxy: [
         {
-          context: ["/api"],
+          context: ['/chapi', '/bd', '/official-account', '/passport', '/sms',],
           target: "https://gateway-v1-test.360huzhubao.com",
-          pathRewrite: { '^/api': '' },
+          // pathRewrite: {
+          //   '^/volunteerapi': '/bd'
+          // },
           changeOrigin: true,
           secure: false,
         },

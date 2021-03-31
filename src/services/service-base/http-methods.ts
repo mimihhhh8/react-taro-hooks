@@ -32,11 +32,11 @@ type Method = 'GET' | 'OPTIONS' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' |
 class httpRequest {
 
   // 封装Taro请求
-  public baseOptions( params: Params, method: Method = 'GET' ) {
+  public baseOptions(params: Params, method: Method = 'GET') {
     const { url, data } = params
     const BASE_URL = getBaseUrl()
-    const CONTENT_TYPE = params.contentType || 'application/json'
-    const mode:string = 'no-cors'
+    const CONTENT_TYPE = params.contentType || 'application/json; charset=utf-8'
+    const mode: string = 'no-cors'
     const OPTION = {
       url: BASE_URL + url,
       data,
@@ -44,34 +44,35 @@ class httpRequest {
       mode,
       header: {
         'content-type': CONTENT_TYPE,
-        'Authorization': Taro.getStorageSync( 'token' )
+        'Authorization': Taro.getStorageSync('token'),
       }
     }
-    return Taro.request( OPTION )
+    console.log(OPTION, 'OPTION')
+    return Taro.request(OPTION)
   }
 
   // 封装get请求
-  public get( url: string, data: any ) {
+  public get(url: string, data: any) {
     let option = { url, data }
     return this.baseOptions(option)
   }
 
   // 封装post请求
-  public post( url: string, data: any, contentType: string ) {
+  public post(url: string, data: any, contentType: string) {
     let params = { url, data, contentType }
     return this.baseOptions(params, 'POST')
   }
 
   // 封装put请求
-  public put( url: string, data: any ) {
+  public put(url: string, data: any) {
     let option = { url, data }
-    return this.baseOptions( option, 'PUT' )
+    return this.baseOptions(option, 'PUT')
   }
 
   // 封装delete请求
-  public delete( url: string, data: any ) {
+  public delete(url: string, data: any) {
     let option = { url, data }
-    return this.baseOptions( option, 'DELETE' )
+    return this.baseOptions(option, 'DELETE')
   }
 
 }

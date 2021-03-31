@@ -21,12 +21,13 @@
     "enhance": false,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "bundle": false
   },
   "compileType": "miniprogram",
   "simulatorType": "wechat",
