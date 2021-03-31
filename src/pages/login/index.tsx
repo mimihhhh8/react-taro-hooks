@@ -1,4 +1,4 @@
-// import Taro, from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import React, { useState } from 'react'
 // 取存在reducer中的值
 import { useDispatch, useSelector } from 'react-redux'
@@ -33,7 +33,15 @@ function Index() {
       safe_code: code
     }
     dispatch(login(data, () => {
-      console.log(232)
+      Taro.showToast({
+        title: '登录成功',
+      })
+      setTimeout(() => {
+        Taro.navigateTo({
+          url: '/pages/my/index'
+        })
+      }, 1000);
+
     }, () => { }))
   }
   console.log(code.length)

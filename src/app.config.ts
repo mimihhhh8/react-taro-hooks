@@ -1,6 +1,9 @@
 export default {
   pages: [
-    'pages/login/index'
+    'pages/login/index',
+    'pages/my/index',
+    'pages/clue/index',
+    'pages/project/index',
   ],
   window: {
     backgroundTextStyle: 'light',
