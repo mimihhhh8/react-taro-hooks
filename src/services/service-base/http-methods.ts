@@ -36,10 +36,12 @@ class httpRequest {
     const { url, data } = params
     const BASE_URL = getBaseUrl()
     const CONTENT_TYPE = params.contentType || 'application/json'
+    const mode:string = 'no-cors'
     const OPTION = {
       url: BASE_URL + url,
       data,
       method,
+      mode,
       header: {
         'content-type': CONTENT_TYPE,
         'Authorization': Taro.getStorageSync( 'token' )
